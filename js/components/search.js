@@ -1,6 +1,10 @@
 'use strict';
 
 const gMapa=(latitud,longitud)=>{
+  $('.fa').show();
+  $('.white').hide();
+  $('.details').hide();
+  $('.red').hide();
   let mapa=$('#map');
   mapa.removeClass('.none');
   console.log("lat:" + latitud + "long: "+ longitud+"'")
@@ -21,69 +25,19 @@ const gMapa=(latitud,longitud)=>{
     }
   }
 
-  // document.getElementById("ruta").addEventListener("click",buscar);
-  //
-	// var latitud,longitud;
-	// var exito = function(posicion) {
-	// 	latitud = posicion.coords.latitude;
-	// 	longitud = posicion.coords.longitude;
-  //
-  //   // var mapita2 = new google.maps.Map(document.getElementById("map"),{
-  //   //   zoom: 18,
-  // 	// 	center: {lat:latitud, lng:longitud}
-  //   // });
-	// 	var miUbicacion = new google.maps.Marker({
-	// 		position: {lat:latitud, lng:longitud},
-	// 		animation: google.maps.Animation.DROP,
-	// 		map: map, // se usa mapita2 se crea un nuevo objeto map
-  //     title:"Usted esta aquí",
-  //     draggable:true,
-	// 	  });
-  //       map.setZoom(18);
-	// 	    map.setCenter({lat:latitud, lng:longitud});
-  //
-  //       var objConfigDR={
-  //         map:map,
-  //         suppressMarkers:true
-  //       }
-  //
-  //       var objConfigDS={
-  //         origin:laboratoriaLima,
-  //         destination:miUbicacion.position,
-  //         travelMode:google.maps.TravelMode.DRIVING //puede ser WALKING, TRANSIT, BICYCLING
-  //       }
-  //
-  //       var dser= new google.maps.DirectionsService();//obtener coordenadas
-  //       var dren= new google.maps.DirectionsRenderer(objConfigDR);//traduce las coordenadas en ruta visible
-  //
-  //       dser.route(objConfigDS,funcionRutear);
-  //
-  //       function funcionRutear(resultados, status){
-  //         if(status=="OK"){
-  //           dren.setDirections(resultados);
-  //         }else{
-  //           alert("error" + status)
-  //         }
-  //       }
-	//    }
-  //
-	//   var error = function (error) {
-	// 	    alert("Tenemos un problema con encontrar tu ubicación");
-	//    }
-
 }
 
 const imprimirStation=(update)=>{
   $('.container').empty();
   $('.result').empty();
   const section = $("<section class='container2'></section>");
-  const divMap=$("<div id='map' class='mapa'></div>");
+  // const divMap=$("<div id='map' class='mapa'></div>");
 
     let tamano=update.length;
     console.log(tamano);
 
     for(var i=0;i<tamano;i++){
-    const iconM=$('<i class="fa fa-map-o right" aria-hidden="true" id="'+update[i].district.toLowerCase().replace(' ','')+'"></i>');
+    const iconM=$('<i class="fa fa-map-o right gray" aria-hidden="true" id="'+update[i].district.toLowerCase().replace(' ','')+'"></i>');
     const div = $('<div class="details" id="'+update[i].district.toLowerCase().replace(' ','')+'"></div>');
     const parrafo1 = $('<h2>'+ update[i].name +'</h2>');
     const parrafo2= $('<p>'+ update[i].address +'</p>');
@@ -95,10 +49,10 @@ const imprimirStation=(update)=>{
     div.append(parrafo3);
 
     section.append(div);
-    section.append(divMap);
+    // section.append(divMap);
 
     iconM.on('click',(e)=>{
-      alert('funciona'+(e.target).id+'');
+      // alert('funciona'+(e.target).id+'');
       let stationM=(e.target).id;
       console.log(stationM);
       let stations=state.stations;

@@ -3,10 +3,12 @@
   padding:0px;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 header>span{
   margin:10px;
+  font-size: 2rem;
 }
 
 header, div.red {
@@ -42,6 +44,10 @@ div.details{
   height:auto;
 }
 
+div.details:hover{
+  background-color: rgba(0,0,0,0.3);
+}
+
 .right{
   float:right;
   margin: 10px;
@@ -54,16 +60,22 @@ div.result{
   top: 21%;
 }
 
-.fa-map-o{
+.fa{
   cursor:pointer;
 }
-/*.none{
+
+.none{
   display:none;
-}*/
+}
 
 div#map{
   margin: auto;
   width: 50%;
-  height: 300px;
+  height: 50vh;
+  position:relative;
+  top:45%;
+}
 
+h2,p{
+  margin:0.4%;
 }

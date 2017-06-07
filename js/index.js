@@ -25,6 +25,11 @@ $( _ => {
 
     const root = $('.root');
     render(root);
+
+    $('#back').on('click',()=>{
+      console.log("volver");
+      render(root);
+    })
   });
 
 });

@@ -1,6 +1,10 @@
 const gMap=(latitud,longitud)=>{
+  $('.red').hide();
+  $('.fa').show();
+  $('.white').hide();
+  $('.details').hide();
   let mapa=$('#map');
-  mapa.removeClass('.none');
+  // mapa.removeClass('.none');
   console.log("lat:" + latitud + "long: "+ longitud+"'")
   var estacion = {lat: latitud, lng: longitud};
   console.log(estacion);
@@ -19,7 +23,7 @@ const StationsDetails = (update) => {
   const section = $("<section class='container'></section>");
 
     const stationsTodo=state.stations;
-    const divMap=$("<div id='map' class='mapa'></div>");
+    // const divMap=$("<div id='map' class='mapa'></div>");
     console.log(stationsTodo);
     let tamano=stationsTodo.length;
     console.log(tamano);
@@ -29,7 +33,7 @@ const StationsDetails = (update) => {
     const parrafo1 = $('<h2>'+ stationsTodo[i].name +'</h2>');
     const parrafo2= $('<p>'+ stationsTodo[i].address +'</p>');
     const parrafo3= $('<p>'+ stationsTodo[i].district +'</p>');
-    const iconM=$('<i class="fa fa-map-o right" aria-hidden="true" id="'+stationsTodo[i].district.toLowerCase().replace(' ','')+'"></i>');
+    const iconM=$('<i class="fa fa-map-o right gray" aria-hidden="true" id="'+stationsTodo[i].district.toLowerCase().replace(' ','')+'"></i>');
 
 
     div.append(iconM);
@@ -37,10 +41,10 @@ const StationsDetails = (update) => {
     div.append(parrafo2);
     div.append(parrafo3);
     section.append(div);
-    section.append(divMap);
+    // section.append(divMap);
 
     iconM.on('click',(e)=>{
-      alert('funciona'+(e.target).id+'');
+      // alert('funciona'+(e.target).id+'');
       let stationM=(e.target).id;
       console.log(stationM);
       let stations=state.stations;
